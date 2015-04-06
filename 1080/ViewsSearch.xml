@@ -1,0 +1,2155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- Card -->
+	<include name="SearchItemFullInfo">
+		<control type="group">
+			<!-- left side presentation -->
+			<control type="group">
+				<posx>0</posx>
+				<posy>82</posy>
+				<control type="group">
+					<control type="image">
+						<visible>ControlGroup(7001).HasFocus | ControlGroup(7002).HasFocus | ControlGroup(7004).HasFocus</visible>
+						<posy>560</posy>
+						<width>372</width>
+						<height>364</height>
+						<texture>colors/black.png</texture>
+						<colordiffuse>ccffffff</colordiffuse>
+						<fadetime>200</fadetime>
+					</control>
+					<control type="image">
+						<visible>ControlGroup(7001).HasFocus | ControlGroup(7002).HasFocus | ControlGroup(7004).HasFocus</visible>
+						<posx>0</posx>
+						<posy>921</posy>
+						<width>372</width>
+						<height>1-row</height>
+						<texture>colors/selected.png</texture>
+						<colordiffuse>selected</colordiffuse>
+						<aspectratio>stretch</aspectratio>
+						<fadetime>200</fadetime>
+					</control>
+					<!-- movie -->
+					<control type="group">
+						<visible>ControlGroup(7001).HasFocus</visible>
+						<control type="image">
+							<width>372</width>
+							<height>555</height>
+							<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
+							<bordertexture border="3" colordiffuse="33FFFFFF">colors/selected.png</bordertexture>
+							<bordersize>3</bordersize>
+							<texture background="true">$INFO[Container(9001).Listitem.icon]</texture>
+							<fadetime>200</fadetime>
+						</control>
+						<!--synopsis-->
+						<control type="textbox">
+							<posx>10</posx>
+							<posy>566</posy>
+							<font>textboxExtraLeading</font>
+							<width>352</width>
+							<align>left</align>
+							<textcolor>selected</textcolor>
+							<height>344</height>
+							<label fallback="[B]There is no description available for this. You can add one for it in the Media Manager.[/B]">$INFO[Container(9001).ListItem.plot,[B],[/B]]</label>
+							<autoscroll delay="10000" time="1000" repeat="10000"/>
+							<shadowcolor>-</shadowcolor>
+						</control>
+						<!-- watched? -->
+						<control type="label">
+							<posx>362</posx>
+							<posy>920</posy>
+							<width>32</width>
+							<align>right</align>
+							<font>symbol</font>
+							<textcolor>black</textcolor>
+							<label>$VAR[vsmListItemOverlay]</label>
+							<shadowcolor>-</shadowcolor>
+						</control>
+						<!-- MPAA flag -->
+						<control type="image">
+							<posy>935</posy>
+							<posx>10</posx>
+							<width>352</width>
+							<height>30</height>
+							<align>left</align>
+							<texture>$INFO[Container(9001).Listitem.Art(mediaTag::contentRating)]</texture>
+							<aspectratio align="left" aligny="center">keep</aspectratio>
+							<colordiffuse>black</colordiffuse>
+						</control>
+					</control>
+					<!-- tv show -->
+					<control type="group">
+						<visible>ControlGroup(7002).HasFocus</visible>
+						<control type="image">
+							<width>372</width>
+							<height>555</height>
+							<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
+							<bordertexture border="3" colordiffuse="33FFFFFF">colors/selected.png</bordertexture>
+							<bordersize>3</bordersize>
+							<texture background="true">$INFO[Container(9002).Listitem.icon]</texture>
+							<fadetime>200</fadetime>
+						</control>
+						<!--synopsis-->
+						<control type="textbox">
+							<posx>10</posx>
+							<posy>570</posy>
+							<font>textboxExtraLeading</font>
+							<width>352</width>
+							<align>left</align>
+							<textcolor>selected</textcolor>
+							<height>344</height>
+							<label fallback="[B]There is no description available for this. You can add one for it in the Media Manager.[/B]">$INFO[Container(9002).ListItem.plot,[B],[/B]]</label>
+							<autoscroll delay="10000" time="1000" repeat="10000"/>
+							<shadowcolor>-</shadowcolor>
+						</control>
+						<!-- watched? -->
+						<control type="label">
+							<posx>362</posx>
+							<posy>920</posy>
+							<width>32</width>
+							<align>right</align>
+							<font>symbol</font>
+							<textcolor>black</textcolor>
+							<label>$VAR[vstvListItemOverlay]</label>
+							<shadowcolor>-</shadowcolor>
+						</control>
+						<!-- MPAA flag -->
+						<control type="image">
+							<posy>935</posy>
+							<posx>10</posx>
+							<width>352</width>
+							<height>30</height>
+							<align>left</align>
+							<texture>$INFO[Container(9002).Listitem.Art(mediaTag::contentRating)]</texture>
+							<aspectratio align="left" aligny="center">keep</aspectratio>
+							<colordiffuse>black</colordiffuse>
+						</control>
+					</control>
+					<!-- tv episode -->
+					<control type="group">
+						<visible>ControlGroup(7004).HasFocus</visible>
+						<control type="image">
+							<width>372</width>
+							<height>555</height>
+							<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
+							<bordertexture border="3" colordiffuse="33FFFFFF">colors/selected.png</bordertexture>
+							<bordersize>3</bordersize>
+							<texture background="true">$INFO[Container(9004).ListItem.Art(thumb)]</texture>
+							<fadetime>200</fadetime>
+						</control>
+						<!--synopsis-->
+						<control type="textbox">
+							<posx>10</posx>
+							<posy>570</posy>
+							<font>textboxExtraLeading</font>
+							<width>352</width>
+							<align>left</align>
+							<textcolor>selected</textcolor>
+							<height>344</height>
+							<label fallback="[B]There is no description available for this. You can add one for it in the Media Manager.[/B]">$INFO[Container(9004).ListItem.plot,[B],[/B]]</label>
+							<autoscroll delay="10000" time="1000" repeat="10000"/>
+							<shadowcolor>-</shadowcolor>
+						</control>
+						<!-- watched? -->
+						<control type="label">
+							<posx>362</posx>
+							<posy>920</posy>
+							<width>32</width>
+							<align>right</align>
+							<font>symbol</font>
+							<textcolor>black</textcolor>
+							<label>$VAR[vseListItemOverlay]</label>
+							<shadowcolor>-</shadowcolor>
+						</control>
+						<!-- MPAA flag -->
+						<control type="image">
+							<posy>935</posy>
+							<posx>10</posx>
+							<width>352</width>
+							<height>30</height>
+							<align>left</align>
+							<texture>$INFO[Container(9004).Listitem.Art(mediaTag::contentRating)]</texture>
+							<aspectratio align="left" aligny="center">keep</aspectratio>
+							<colordiffuse>black</colordiffuse>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="SearchScreenLoadingIndicator">
+		<!-- Loading indicator -->
+		<control type="group">
+			<visible>System.SearchInProgress</visible>
+			<posx>392</posx>
+			<posy>34</posy>
+			<control type="image">
+				<texture>busy.gif</texture>
+				<width>32</width>
+				<height>32</height>
+			</control>
+		</control>
+	</include>
+	<include name="Search_Keyboard_Button">
+		<posy>9</posy>
+		<width>50</width>
+		<height>50</height>
+		<font>buttonTitle</font>
+		<textcolor>accented</textcolor>
+		<align>center</align>
+		<aligny>center</aligny>
+		<texturefocus>colors/keyaccent.png</texturefocus>
+		<texturenofocus>colors/keyselected.png</texturenofocus>
+		<focusedcolor>selected</focusedcolor>
+	</include>
+	<include name="Search_Keyboard_Press_Button">
+		<posy>50</posy>
+		<width>104</width>
+		<height>44</height>
+		<onup>95</onup>
+		<ondown>-</ondown>
+		<align>center</align>
+		<aligny>center</aligny>
+		<font>buttonTitle</font>
+		<textcolor>accented</textcolor>
+		<texturefocus>colors/keyaccent.png</texturefocus>
+		<texturenofocus>colors/keyselected.png</texturenofocus>
+		<focusedcolor>selected</focusedcolor>
+	</include>
+	<!-- main -->
+	<include name="SearchMain">
+		<!-- Infos -->
+		<control type="group">
+			<include>SearchItemFullInfo</include>
+		</control>
+		<control type="image">
+			<posx>376</posx>
+			<posy>20</posy>
+			<width>1544</width>
+			<height>1-row</height>
+			<texture>colors/selected.png</texture>
+			<colordiffuse>selected</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+		</control>
+		<!-- title bar infos MOVIE -->
+		<control type="grouplist">
+			<posx>40</posx>
+			<posy>32</posy>
+			<height>1-row</height>
+			<align>right</align>
+			<width>1860</width>
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<visible>Control.HasFocus(9001)</visible>
+			<control type="label">
+				<align>left</align>
+				<label>$INFO[Container(9001).ListItem(0).Title]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="1000">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9001).ListItem(0).Title)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> &#xB7; $INFO[Container(9001).ListItem(0).Year]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="200">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9001).ListItem(0).Year)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> &#xB7; $INFO[Container(9001).ListItem(0).DurationStr]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="200">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9001).ListItem(0).DurationStr)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> / [UPPERCASE]$LOCALIZE[31111][/UPPERCASE]</label>
+				<font>pageTitle</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="800">auto</width>
+				<height>30</height>
+			</control>
+		</control>
+		<!-- title bar infos TVSHOW -->
+		<control type="grouplist">
+			<posx>40</posx>
+			<posy>32</posy>
+			<height>1-row</height>
+			<align>right</align>
+			<width>1860</width>
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<visible>Control.HasFocus(9002)</visible>
+			<control type="label">
+				<align>left</align>
+				<label>$INFO[Container(9002).ListItem(0).Title]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="1000">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9002).ListItem(0).Title)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> &#xB7; $INFO[Container(9002).ListItem(0).Year]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="200">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9002).ListItem(0).Year)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> &#xB7; $INFO[Container(9002).ListItem(0).DurationStr]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="200">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9002).ListItem(0).DurationStr)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> / [UPPERCASE]$LOCALIZE[31112][/UPPERCASE]</label>
+				<font>pageTitle</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="800">auto</width>
+				<height>30</height>
+			</control>
+		</control>
+		<!-- title bar infos EPISODE -->
+		<control type="grouplist">
+			<posx>40</posx>
+			<posy>32</posy>
+			<height>1-row</height>
+			<align>right</align>
+			<width>1860</width>
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<visible>Control.HasFocus(9004)</visible>
+			<control type="label">
+				<align>left</align>
+				<label>$INFO[Container(9004).ListItem(0).TVShowTitle]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="1000">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9004).ListItem(0).TVShowTitle)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> &#xB7; $INFO[Container(9004).ListItem(0).Date]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="200">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9004).ListItem(0).Date)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> &#xB7; $INFO[Container(9004).ListItem(0).Title]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="1000">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9004).ListItem(0).Title)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> &#xB7; $INFO[Container(9004).ListItem(0).DurationStr]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="200">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9004).ListItem(0).DurationStr)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> / [UPPERCASE]$LOCALIZE[31137][/UPPERCASE]</label>
+				<font>pageTitle</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="800">auto</width>
+				<height>30</height>
+			</control>
+		</control>
+		<!-- title bar infos ARTIST -->
+		<control type="grouplist">
+			<posx>40</posx>
+			<posy>32</posy>
+			<height>1-row</height>
+			<align>right</align>
+			<width>1860</width>
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<visible>Control.HasFocus(9008)</visible>
+			<control type="label">
+				<align>left</align>
+				<label>$INFO[Container(9008).ListItem(0).Artist]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="1000">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9008).ListItem(0).Artist)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> / [UPPERCASE]$LOCALIZE[32110][/UPPERCASE]</label>
+				<font>pageTitle</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="800">auto</width>
+				<height>30</height>
+			</control>
+		</control>
+		<!-- title bar infos ALBUM -->
+		<control type="grouplist">
+			<posx>40</posx>
+			<posy>32</posy>
+			<height>1-row</height>
+			<align>right</align>
+			<width>1860</width>
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<visible>Control.HasFocus(9009)</visible>
+			<control type="label">
+				<align>left</align>
+				<label>$INFO[Container(9009).ListItem(0).Artist]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="1000">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9009).ListItem(0).Artist)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> &#xB7; $INFO[Container(9009).ListItem(0).Album]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="1000">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9009).ListItem(0).Album)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> &#xB7; $INFO[Container(9009).ListItem(0).Year]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="200">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9009).ListItem(0).Year)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> / [UPPERCASE]$LOCALIZE[32111][/UPPERCASE]</label>
+				<font>pageTitle</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="800">auto</width>
+				<height>30</height>
+			</control>
+		</control>
+		<!-- title bar infos SONG -->
+		<control type="grouplist">
+			<posx>40</posx>
+			<posy>32</posy>
+			<height>1-row</height>
+			<align>right</align>
+			<width>1860</width>
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<visible>Control.HasFocus(9010)</visible>
+			<control type="label">
+				<align>left</align>
+				<label>$INFO[Container(9010).ListItem(0).Artist]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="1000">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9010).ListItem(0).Artist)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> &#xB7; $INFO[Container(9010).ListItem(0).Title]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="1000">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9010).ListItem(0).Title)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> &#xB7; $INFO[Container(9010).ListItem(0).DurationStr]</label>
+				<font>regular</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="200">auto</width>
+				<height>30</height>
+				<visible>!IsEmpty(Container(9010).ListItem(0).DurationStr)</visible>
+			</control>
+			<control type="label">
+				<align>left</align>
+				<label> / [UPPERCASE]$LOCALIZE[32106][/UPPERCASE]</label>
+				<font>pageTitle</font>
+				<scroll>false</scroll>
+				<textcolor>black</textcolor>
+				<wrapmultiline>false</wrapmultiline>
+				<width min="1" max="800">auto</width>
+				<height>30</height>
+			</control>
+		</control>
+		<include>SearchScreenLoadingIndicator</include>
+		<!-- Keyboard & text field & results -->
+		<control type="group">
+			<animation effect="fade" start="0" end="100" time="30">WindowOpen</animation>
+			<posy>0</posy>
+			<posx>0</posx>
+			<!-- text field -->
+			<control type="edit" id="310">
+				<description>Search</description>
+				<posx>0</posx>
+				<posy>20</posy>
+				<textcolor>black</textcolor>
+				<focusedcolor>black</focusedcolor>
+				<width>372</width>
+				<height>1-row</height>
+				<onleft>-</onleft>
+				<ondown>9001</ondown>
+				<onright>350</onright>
+				<texturefocus>colors/selected.png</texturefocus>
+				<texturenofocus>colors/selected.png</texturenofocus>
+				<align>left</align>
+				<aligny>center</aligny>
+				<textoffsetx>16</textoffsetx>
+				<label/>
+			</control>
+			<!-- keys -->
+			<control type="group" id="4000">
+				<animation effect="fade" start="100" end="0" time="200" condition="ControlGroup(7001).HasFocus | ControlGroup(7002).HasFocus | ControlGroup(7004).HasFocus">Conditional</animation>
+				<posx>26</posx>
+				<posy>73</posy>
+				<control type="grouplist" id="350">
+					<visible>true</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>348</width>
+					<height>420</height>
+					<itemgap>0</itemgap>
+					<orientation>vertical</orientation>
+					<usecontrolcoords>false</usecontrolcoords>
+					<onup>-</onup>
+					<ondown>-</ondown>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<renderfocusedlast>false</renderfocusedlast>
+					<control type="group" id="351">
+						<width>339</width>
+						<height>54</height>
+						<control type="button" id="65">
+							<include>Search_Keyboard_Button</include>
+							<description>'A' button</description>
+							<onleft>5100</onleft>
+							<onright>66</onright>
+							<onup>310</onup>
+							<ondown>71</ondown>
+							<posx>0</posx>
+							<label>[B]A[/B]</label>
+						</control>
+						<control type="button" id="66">
+							<include>Search_Keyboard_Button</include>
+							<description>'B' button</description>
+							<onleft>65</onleft>
+							<onright>67</onright>
+							<onup>310</onup>
+							<ondown>72</ondown>
+							<posx>54</posx>
+							<label>[B]B[/B]</label>
+						</control>
+						<control type="button" id="67">
+							<include>Search_Keyboard_Button</include>
+							<description>'C' button</description>
+							<onleft>66</onleft>
+							<onright>68</onright>
+							<onup>310</onup>
+							<ondown>73</ondown>
+							<posx>108</posx>
+							<label>[B]C[/B]</label>
+						</control>
+						<control type="button" id="68">
+							<include>Search_Keyboard_Button</include>
+							<description>'D' button</description>
+							<onleft>67</onleft>
+							<onright>69</onright>
+							<onup>310</onup>
+							<ondown>74</ondown>
+							<posx>162</posx>
+							<label>[B]D[/B]</label>
+						</control>
+						<control type="button" id="69">
+							<include>Search_Keyboard_Button</include>
+							<description>'E' button</description>
+							<onleft>68</onleft>
+							<onright>70</onright>
+							<onup>310</onup>
+							<ondown>75</ondown>
+							<posx>216</posx>
+							<label>[B]E[/B]</label>
+						</control>
+						<control type="button" id="70">
+							<include>Search_Keyboard_Button</include>
+							<description>'F' button</description>
+							<onleft>69</onleft>
+							<onright>5100</onright>
+							<onup>310</onup>
+							<ondown>76</ondown>
+							<posx>270</posx>
+							<label>[B]F[/B]</label>
+						</control>
+					</control>
+					<control type="group" id="352">
+						<width>348</width>
+						<height>54</height>
+						<control type="button" id="71">
+							<include>Search_Keyboard_Button</include>
+							<description>'G' button</description>
+							<onleft>5100</onleft>
+							<onright>72</onright>
+							<onup>65</onup>
+							<ondown>77</ondown>
+							<posx>0</posx>
+							<label>[B]G[/B]</label>
+						</control>
+						<control type="button" id="72">
+							<include>Search_Keyboard_Button</include>
+							<description>'H' button</description>
+							<onleft>71</onleft>
+							<onright>73</onright>
+							<onup>66</onup>
+							<ondown>78</ondown>
+							<posx>54</posx>
+							<label>[B]H[/B]</label>
+						</control>
+						<control type="button" id="73">
+							<include>Search_Keyboard_Button</include>
+							<description>'I' button</description>
+							<onleft>72</onleft>
+							<onright>74</onright>
+							<onup>67</onup>
+							<ondown>79</ondown>
+							<posx>108</posx>
+							<label>[B]I[/B]</label>
+						</control>
+						<control type="button" id="74">
+							<include>Search_Keyboard_Button</include>
+							<description>'J' button</description>
+							<onleft>73</onleft>
+							<onright>75</onright>
+							<onup>68</onup>
+							<ondown>80</ondown>
+							<posx>162</posx>
+							<label>[B]J[/B]</label>
+						</control>
+						<control type="button" id="75">
+							<include>Search_Keyboard_Button</include>
+							<description>'K' button</description>
+							<onleft>74</onleft>
+							<onright>76</onright>
+							<onup>69</onup>
+							<ondown>81</ondown>
+							<posx>216</posx>
+							<label>[B]K[/B]</label>
+						</control>
+						<control type="button" id="76">
+							<include>Search_Keyboard_Button</include>
+							<description>'L' button</description>
+							<onleft>75</onleft>
+							<onright>5100</onright>
+							<onup>70</onup>
+							<ondown>82</ondown>
+							<posx>270</posx>
+							<label>[B]L[/B]</label>
+						</control>
+					</control>
+					<control type="group" id="353">
+						<width>348</width>
+						<height>54</height>
+						<control type="button" id="77">
+							<include>Search_Keyboard_Button</include>
+							<description>'M' button</description>
+							<onleft>5100</onleft>
+							<onright>78</onright>
+							<onup>71</onup>
+							<ondown>83</ondown>
+							<posx>0</posx>
+							<label>[B]M[/B]</label>
+						</control>
+						<control type="button" id="78">
+							<include>Search_Keyboard_Button</include>
+							<description>'N' button</description>
+							<onleft>77</onleft>
+							<onright>79</onright>
+							<onup>72</onup>
+							<ondown>84</ondown>
+							<posx>54</posx>
+							<label>[B]N[/B]</label>
+						</control>
+						<control type="button" id="79">
+							<include>Search_Keyboard_Button</include>
+							<description>'O' button</description>
+							<onleft>78</onleft>
+							<onright>80</onright>
+							<onup>73</onup>
+							<ondown>85</ondown>
+							<posx>108</posx>
+							<label>[B]O[/B]</label>
+						</control>
+						<control type="button" id="80">
+							<include>Search_Keyboard_Button</include>
+							<description>'P' button</description>
+							<onleft>79</onleft>
+							<onright>81</onright>
+							<onup>74</onup>
+							<ondown>86</ondown>
+							<posx>162</posx>
+							<label>[B]P[/B]</label>
+						</control>
+						<control type="button" id="81">
+							<include>Search_Keyboard_Button</include>
+							<description>'Q' button</description>
+							<onleft>80</onleft>
+							<onright>82</onright>
+							<onup>75</onup>
+							<ondown>87</ondown>
+							<posx>216</posx>
+							<label>[B]Q[/B]</label>
+						</control>
+						<control type="button" id="82">
+							<include>Search_Keyboard_Button</include>
+							<description>'R' button</description>
+							<onleft>81</onleft>
+							<onright>5100</onright>
+							<onup>76</onup>
+							<ondown>88</ondown>
+							<posx>270</posx>
+							<label>[B]R[/B]</label>
+						</control>
+					</control>
+					<control type="group" id="354">
+						<width>348</width>
+						<height>54</height>
+						<control type="button" id="83">
+							<include>Search_Keyboard_Button</include>
+							<description>'S' button</description>
+							<onleft>5100</onleft>
+							<onright>84</onright>
+							<onup>77</onup>
+							<ondown>89</ondown>
+							<posx>0</posx>
+							<label>[B]S[/B]</label>
+						</control>
+						<control type="button" id="84">
+							<include>Search_Keyboard_Button</include>
+							<description>'T' button</description>
+							<onleft>83</onleft>
+							<onright>85</onright>
+							<onup>78</onup>
+							<ondown>90</ondown>
+							<posx>54</posx>
+							<label>[B]T[/B]</label>
+						</control>
+						<control type="button" id="85">
+							<include>Search_Keyboard_Button</include>
+							<description>'U' button</description>
+							<onleft>84</onleft>
+							<onright>86</onright>
+							<onup>79</onup>
+							<ondown>91</ondown>
+							<posx>108</posx>
+							<label>[B]U[/B]</label>
+						</control>
+						<control type="button" id="86">
+							<include>Search_Keyboard_Button</include>
+							<description>'V' button</description>
+							<onleft>85</onleft>
+							<onright>87</onright>
+							<onup>80</onup>
+							<ondown>92</ondown>
+							<posx>162</posx>
+							<label>[B]V[/B]</label>
+						</control>
+						<control type="button" id="87">
+							<include>Search_Keyboard_Button</include>
+							<description>'W' button</description>
+							<onleft>86</onleft>
+							<onright>88</onright>
+							<onup>81</onup>
+							<ondown>93</ondown>
+							<posx>216</posx>
+							<label>[B]W[/B]</label>
+						</control>
+						<control type="button" id="88">
+							<include>Search_Keyboard_Button</include>
+							<description>'X' button</description>
+							<onleft>87</onleft>
+							<onright>5100</onright>
+							<onup>82</onup>
+							<ondown>94</ondown>
+							<posx>270</posx>
+							<label>[B]X[/B]</label>
+						</control>
+					</control>
+					<control type="group" id="355">
+						<width>348</width>
+						<height>54</height>
+						<control type="button" id="89">
+							<include>Search_Keyboard_Button</include>
+							<description>'Y' button</description>
+							<onleft>5100</onleft>
+							<onright>90</onright>
+							<onup>83</onup>
+							<ondown>95</ondown>
+							<posx>0</posx>
+							<label>[B]Y[/B]</label>
+						</control>
+						<control type="button" id="90">
+							<include>Search_Keyboard_Button</include>
+							<description>'Z' button</description>
+							<onleft>89</onleft>
+							<onright>91</onright>
+							<onup>84</onup>
+							<ondown>96</ondown>
+							<posx>54</posx>
+							<label>[B]Z[/B]</label>
+						</control>
+						<control type="button" id="91">
+							<include>Search_Keyboard_Button</include>
+							<description>'0' button</description>
+							<onleft>90</onleft>
+							<onright>92</onright>
+							<onup>85</onup>
+							<ondown>97</ondown>
+							<posx>108</posx>
+							<label>[B]$LOCALIZE[12310][/B]</label>
+						</control>
+						<control type="button" id="92">
+							<include>Search_Keyboard_Button</include>
+							<description>'1' button</description>
+							<onleft>91</onleft>
+							<onright>93</onright>
+							<onup>86</onup>
+							<ondown>98</ondown>
+							<posx>162</posx>
+							<label>[B]$LOCALIZE[12311][/B]</label>
+						</control>
+						<control type="button" id="93">
+							<include>Search_Keyboard_Button</include>
+							<description>'2' button</description>
+							<onleft>92</onleft>
+							<onright>94</onright>
+							<onup>87</onup>
+							<ondown>99</ondown>
+							<posx>216</posx>
+							<label>[B]$LOCALIZE[12312][/B]</label>
+						</control>
+						<control type="button" id="94">
+							<include>Search_Keyboard_Button</include>
+							<description>'3' button</description>
+							<onleft>93</onleft>
+							<onright>5100</onright>
+							<onup>88</onup>
+							<ondown>100</ondown>
+							<posx>270</posx>
+							<label>[B]$LOCALIZE[12313][/B]</label>
+						</control>
+					</control>
+					<control type="group" id="356">
+						<width>348</width>
+						<height>54</height>
+						<control type="button" id="95">
+							<include>Search_Keyboard_Button</include>
+							<description>'4' button</description>
+							<onleft>5100</onleft>
+							<onright>96</onright>
+							<onup>89</onup>
+							<ondown>8</ondown>
+							<posx>0</posx>
+							<label>[B]$LOCALIZE[12314][/B]</label>
+						</control>
+						<control type="button" id="96">
+							<include>Search_Keyboard_Button</include>
+							<description>'5' button</description>
+							<onleft>95</onleft>
+							<onright>97</onright>
+							<onup>90</onup>
+							<ondown>8</ondown>
+							<posx>54</posx>
+							<label>[B]$LOCALIZE[12315][/B]</label>
+						</control>
+						<control type="button" id="97">
+							<include>Search_Keyboard_Button</include>
+							<description>'6' button</description>
+							<onleft>96</onleft>
+							<onright>98</onright>
+							<onup>91</onup>
+							<ondown>32</ondown>
+							<posx>108</posx>
+							<label>[B]$LOCALIZE[12316][/B]</label>
+						</control>
+						<control type="button" id="98">
+							<include>Search_Keyboard_Button</include>
+							<description>'7' button</description>
+							<onleft>97</onleft>
+							<onright>99</onright>
+							<onup>92</onup>
+							<ondown>32</ondown>
+							<posx>162</posx>
+							<label>[B]$LOCALIZE[12317][/B]</label>
+						</control>
+						<control type="button" id="99">
+							<include>Search_Keyboard_Button</include>
+							<description>'8' button</description>
+							<onleft>98</onleft>
+							<onright>100</onright>
+							<onup>93</onup>
+							<ondown>10</ondown>
+							<posx>216</posx>
+							<label>[B]$LOCALIZE[12318][/B]</label>
+						</control>
+						<control type="button" id="100">
+							<include>Search_Keyboard_Button</include>
+							<description>'9' button</description>
+							<onleft>99</onleft>
+							<onright>5100</onright>
+							<onup>94</onup>
+							<ondown>10</ondown>
+							<posx>270</posx>
+							<label>[B]$LOCALIZE[12319][/B]</label>
+						</control>
+					</control>
+					<control type="group" id="357">
+						<width>348</width>
+						<height>54</height>
+						<!-- Delete button -->
+						<control type="button" id="8">
+							<posy>9</posy>
+							<posx>0</posx>
+							<onleft>100</onleft>
+							<onright>32</onright>
+							<label>Delete</label>
+							<include>Search_Keyboard_Press_Button</include>
+						</control>
+						<!-- Space -->
+						<control type="button" id="32">
+							<posy>9</posy>
+							<posx>108</posx>
+							<onleft>8</onleft>
+							<onright>10</onright>
+							<label>Space</label>
+							<include>Search_Keyboard_Press_Button</include>
+						</control>
+						<!-- Clear -->
+						<control type="button" id="10">
+							<posy>9</posy>
+							<posx>216</posx>
+							<onleft>32</onleft>
+							<onright>9001</onright>
+							<label>Clear</label>
+							<include>Search_Keyboard_Press_Button</include>
+						</control>
+					</control>
+				</control>
+			</control>
+			<!-- results -->
+			<control type="group" id="5000">
+				<visible>true</visible>
+				<posx>376</posx>
+				<posy>82</posy>
+				<width>1920</width>
+				<height>1040</height>
+				<!-- Container for the result categories -->
+				<control type="grouplist" id="5100">
+					<visible>true</visible>
+					<width>1920</width>
+					<height>978</height>
+					<ondown>5200</ondown>
+					<onup>310</onup>
+					<onright>350</onright>
+					<onleft>350</onleft>
+					<orientation>vertical</orientation>
+					<!-- Movies -->
+					<control type="group" id="7001">
+						<height>364</height>
+						<!-- title bar infos -->
+						<!--found movies-->
+						<control type="fixedlist" id="9001">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>22-col</width>
+							<height>364</height>
+							<visible allowhiddenfocus="false">true</visible>
+							<orientation>horizontal</orientation>
+							<ondown>7002</ondown>
+							<onup>-</onup>
+							<onright>-</onright>
+							<onleft>350</onleft>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="387" height="354">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.Property(Fanart_Image)]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>272</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/black.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>77FFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>selected</textcolor>
+										<label>H</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(genre)]</label>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout width="387" height="354">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.Property(Fanart_Image)]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>272</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/selected.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>ffFFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>black</textcolor>
+										<label>H</label>
+										<shadowcolor>-</shadowcolor>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(genre)]</label>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+					<!-- TV Shows -->
+					<control type="group" id="7002">
+						<height>364</height>
+						<!--found tv shows-->
+						<control type="fixedlist" id="9002">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>22-col</width>
+							<height>364</height>
+							<visible allowhiddenfocus="false">true</visible>
+							<orientation>horizontal</orientation>
+							<ondown>7004</ondown>
+							<onup>7001</onup>
+							<onright>-</onright>
+							<onleft>350</onleft>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="387" height="354">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.Property(Fanart_Image)]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>272</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/black.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>77FFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>selected</textcolor>
+										<label>H</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(genre)]</label>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout width="387" height="354">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.Property(Fanart_Image)]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>272</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/selected.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>ffFFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>black</textcolor>
+										<label>H</label>
+										<shadowcolor>-</shadowcolor>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(genre)]</label>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+					<!-- Episodes -->
+					<control type="group" id="7004">
+						<!--found episodes-->
+						<height>364</height>
+						<control type="fixedlist" id="9004">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>22-col</width>
+							<height>364</height>
+							<visible allowhiddenfocus="false">true</visible>
+							<orientation>horizontal</orientation>
+							<ondown>7008</ondown>
+							<onup>7002</onup>
+							<onright>-</onright>
+							<onleft>350</onleft>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="387" height="354">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.icon]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>272</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/black.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>77FFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>selected</textcolor>
+										<label>H</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.TvShowTitle,, • ]$INFO[ListItem.Season,s]$INFO[ListItem.Episode,e]</label>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout width="387" height="354">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.icon]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>272</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/selected.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>ffFFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>black</textcolor>
+										<label>H</label>
+										<shadowcolor>-</shadowcolor>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.TvShowTitle,, • ]$INFO[ListItem.Season,s]$INFO[ListItem.Episode,e]</label>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+					<!-- Artists -->
+					<control type="group" id="7008">
+						<!--found artists-->
+						<height>458</height>
+						<control type="fixedlist" id="9008">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>22-col</width>
+							<height>458</height>
+							<visible allowhiddenfocus="false">true</visible>
+							<orientation>horizontal</orientation>
+							<ondown>7009</ondown>
+							<onup>7004</onup>
+							<onright>-</onright>
+							<onleft>350</onleft>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="387" height="430">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.icon]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>366</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/black.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>77FFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>selected</textcolor>
+										<label>C</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Genre]</label>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout width="387" height="430">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.icon]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>366</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/selected.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>ffFFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>black</textcolor>
+										<label>C</label>
+										<shadowcolor>-</shadowcolor>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Genre]</label>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+					<!-- Albums -->
+					<control type="group" id="7009">
+						<height>458</height>
+						<!--found albums-->
+						<control type="fixedlist" id="9009">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>22-col</width>
+							<height>458</height>
+							<visible allowhiddenfocus="false">true</visible>
+							<orientation>horizontal</orientation>
+							<ondown>7010</ondown>
+							<onup>7008</onup>
+							<onright>-</onright>
+							<onleft>350</onleft>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="387" height="430">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.icon]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>366</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/black.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>77FFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>selected</textcolor>
+										<label>C</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Artist]$INFO[ListItem.Year, •,]</label>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout width="387" height="430">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.icon]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>366</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/selected.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>ffFFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>black</textcolor>
+										<label>C</label>
+										<shadowcolor>-</shadowcolor>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Artist]$INFO[ListItem.Year, •,]</label>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+					<!-- Tracks -->
+					<control type="group" id="7010">
+						<!--found songs-->
+						<height>458</height>
+						<control type="fixedlist" id="9010">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>22-col</width>
+							<height>458</height>
+							<visible allowhiddenfocus="false">true</visible>
+							<orientation>horizontal</orientation>
+							<onup>7009</onup>
+							<ondown>7013</ondown>
+							<onright>-</onright>
+							<onleft>350</onleft>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="387" height="430">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.icon]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>366</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/black.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>77FFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>selected</textcolor>
+										<label>C</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Artist] • $INFO[ListItem.Album]</label>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout width="387" height="430">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.icon]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>363</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>366</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/selected.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>ffFFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>black</textcolor>
+										<label>C</label>
+										<shadowcolor>-</shadowcolor>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Artist] • $INFO[ListItem.Album]</label>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+					<!-- People -->
+					<control type="group" id="7013">
+						<height>364</height>
+						<control type="fixedlist" id="9013">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>22-col</width>
+							<height>364</height>
+							<visible allowhiddenfocus="false">true</visible>
+							<orientation>horizontal</orientation>
+							<onup>7010</onup>
+							<ondown>7012</ondown>
+							<onright>-</onright>
+							<onleft>350</onleft>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="387" height="354">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.Property(Fanart_Image)]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>272</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/black.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>77FFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>selected</textcolor>
+										<label>f</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(genre)]</label>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout width="387" height="354">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.Property(Fanart_Image)]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>272</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/selected.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>ffFFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>black</textcolor>
+										<label>f</label>
+										<shadowcolor>-</shadowcolor>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(genre)]</label>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+					<!-- Clips -->
+					<control type="group" id="7012">
+						<height>364</height>
+						<control type="fixedlist" id="9012">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>22-col</width>
+							<height>364</height>
+							<visible allowhiddenfocus="false">true</visible>
+							<orientation>horizontal</orientation>
+							<onup>7013</onup>
+							<ondown>-</ondown>
+							<onright>-</onright>
+							<onleft>350</onleft>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="387" height="354">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.Property(Fanart_Image)]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>272</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/black.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>77FFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>selected</textcolor>
+										<label>S</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>selected</textcolor>
+										<label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(genre)]</label>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout width="387" height="354">
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<aspectratio>scale</aspectratio>
+									<texture fallback="candy/default.png" border="0">$INFO[ListItem.Property(Fanart_Image)]</texture>
+									<bordertexture border="3" colordiffuse="ffFFFFFF">colors/selected.png</bordertexture>
+									<bordersize>3</bordersize>
+									<colordiffuse>ffFFFFFF</colordiffuse>
+								</control>
+								<control type="image">
+									<posx>0</posx>
+									<posy>0</posy>
+									<width>363</width>
+									<height>269</height>
+									<texture>backgrounds/vignette.png</texture>
+									<colordiffuse>ffffffff</colordiffuse>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="group">
+									<posx>0</posx>
+									<posy>272</posy>
+									<control type="image">
+										<posx>0</posx>
+										<posy>0</posy>
+										<width>363</width>
+										<height>64</height>
+										<aspectratio>stretch</aspectratio>
+										<texture>colors/selected.png</texture>
+										<bordersize>0</bordersize>
+										<colordiffuse>ffFFFFFF</colordiffuse>
+									</control>
+									<control type="label">
+										<posx>12</posx>
+										<posy>4</posy>
+										<width>1-col</width>
+										<font>symbol</font>
+										<textcolor>black</textcolor>
+										<label>S</label>
+										<shadowcolor>-</shadowcolor>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>-8</posy>
+										<width>252</width>
+										<font>itemTitleSmall</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
+									<control type="label">
+										<posx>60</posx>
+										<posy>18</posy>
+										<width>252</width>
+										<font>smallMedium</font>
+										<textcolor>black</textcolor>
+										<shadowcolor>-</shadowcolor>
+										<label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(genre)]</label>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

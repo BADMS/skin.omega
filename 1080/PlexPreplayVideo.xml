@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="10090">
+	<defaultcontrol always="true">8000</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<onload>Skin.Reset(preSkipEV)</onload>
+	<onload condition="!Window.Previous(fullscreenvideo)">Skin.Reset(preSkip)</onload>
+	<onload condition="!Skin.Hassetting(disableEpAutoAdv) + Window.Previous(fullscreenvideo) + ![ListItem.Status(InProgress) | ListItem.Status(UnWatched)]">XBMC.NextItem</onload>
+	<onunload condition="!Container.PlexContent(Episode) | Container.PlexContent(Episode) + [ListItem.Status(Watched) | [!Skin.HasSetting(disableTVSpoilers) + [ListItem.Status(InProgress) | ListItem.Status(UnWatched)]]]">Skin.Reset(playerPlot)</onunload>
+	<onunload condition="Container.PlexContent(Episode) + [Skin.HasSetting(disableTVSpoilers) + [ListItem.Status(InProgress) | ListItem.Status(UnWatched)] + !IsEmpty(ListItem.Plot)]">Skin.SetString(playerPlot,$LOCALIZE[32105])</onunload>
+	<onunload condition="Container.PlexContent(Episode) + IsEmpty(ListItem.Plot)">Skin.SetString(playerPlot,$LOCALIZE[31009])</onunload>
+	<onunload>Skin.Reset(tvGenre)</onunload>
+	<onunload>Skin.Reset(tvDuration)</onunload>
+	<onunload>Skin.Reset(tvCount)</onunload>
+	<onunload>Skin.Reset(tvRating)</onunload>
+	<onunload>Skin.Reset(tvStudio)</onunload>
+	<onunload>Skin.Reset(tvYear)</onunload>
+	<onunload>Skin.Reset(tvMPAA)</onunload>
+	<onload condition="Skin.Hassetting(disableClipPP) + !Window.Previous(fullscreenvideo) + Skin.String(SectionType,channels)">Plex.PlayWith(VideoDefaultPlayer)</onload>
+	<onload condition="Skin.Hassetting(disableTVPP) + !Window.Previous(fullscreenvideo) + Container.Content(episode) + [IsEmpty(ListItem.Plot) | ListItem.Status(InProgress) | ListItem.Status(UnWatched)]">Plex.PlayWith(VideoDefaultPlayer)</onload>
+	<onload condition="Skin.Hassetting(disableTVPP) + !Window.Previous(fullscreenvideo) + Container.Content(episode) + [IsEmpty(ListItem.Plot) | ListItem.Status(InProgress) | ListItem.Status(UnWatched)]">Skin.SetString(preSkip,1)</onload>
+	<onload condition="Skin.Hassetting(disableTVPP) + Window.Previous(fullscreenvideo) + Container.Content(episode) + [IsEmpty(ListItem.Plot) | ListItem.Status(InProgress) | ListItem.Status(UnWatched) | Skin.String(preSkip,1)]">action(back)</onload>
+	<onload condition="Skin.Hassetting(disableClipPP) + Window.Previous(fullscreenvideo) + Skin.String(SectionType,channels)">action(back)</onload>
+	<onload condition="!Skin.Hassetting(disableClipPP) + Skin.String(SectionType,channels)">AlarmClock(controlViewmode,SetFocus(8000),00:00,silent)</onload>
+	<controls>
+		<control type="group">
+			<visible>![Skin.Hassetting(disableClipPP) + Skin.String(SectionType,channels)]</visible>
+			<visible>![Skin.Hassetting(disableTVPP) + !Skin.String(preSkipEV,1) + Container.Content(episode) + [IsEmpty(ListItem.Plot) | ListItem.Status(InProgress) | ListItem.Status(UnWatched)]]</visible>
+			<include>fadeInOutPP</include>
+			<!--background / fanart-->
+			<control type="image">
+				<visible>!Container.PlexContent(Clip) + !container.content(episode)</visible>
+				<posx>0</posx>
+				<posy>0</posy>
+				<include>FullScreenScaled</include>
+				<texture>colors/black.png</texture>
+				<colordiffuse>ffffffff</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<visible>Container.PlexContent(Clip) | container.content(episode)</visible>
+				<posx>0</posx>
+				<posy>0</posy>
+				<include>FullScreenScaled</include>
+				<texture>colors/black.png</texture>
+				<colordiffuse>ddffffff</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<visible>!Container.PlexContent(Clip) + !container.content(episodes)</visible>
+				<posx>0</posx>
+				<posy>0</posy>
+				<include>FullScreenScaled</include>
+				<texture>$INFO[listitem.art(fanart)]</texture>
+				<colordiffuse>ffffffff</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+				<include condition="!Skin.HasSetting(disableAnimateFanart)">kenBurnsey</include>
+			</control>
+			<control type="image">
+				<visible>Container.PlexContent(Clip)</visible>
+				<posx>0</posx>
+				<posy>0</posy>
+				<include>FullScreenScaled</include>
+				<texture>$INFO[ListItem.Art(thumb)]</texture>
+				<colordiffuse>ffffffff</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+				<include condition="!Skin.HasSetting(disableAnimateFanart)">kenBurnsey</include>
+			</control>
+			<control type="image">
+				<include>FullScreenScaled</include>
+				<texture>backgrounds/vignette.png</texture>
+				<colordiffuse>ffffffff</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+			</control>
+		</control>
+		<!--content is movie or tvshow (from XBMC Library)-->
+		<control type="group">
+			<visible>![Skin.Hassetting(disableClipPP) + Skin.String(SectionType,channels)] + !Container.PlexContent(Clip) + !container.content(episode)</visible>
+			<posx>1263</posx>
+			<posy>0</posy>
+			<animation type="Windowopen">
+				<effect type="fade" start="0" end="100" time="300" delay="300"/>
+				<effect type="slide" start="800" end="0" tween="cubic" easing="out" time="400" delay="300"/>
+			</animation>
+			<animation type="Windowclose">
+				<effect type="slide" start="0" end="1378" tween="cubic" easing="out" time="400" delay="300"/>
+			</animation>
+			<animation type="conditional" condition="skin.string(showcast,true) + !IsEmpty(ListItem.Property(PlexExtras))">
+				<effect type="slide" start="0" end="-578" tween="cubic" easing="out" time="400" delay="0"/>
+			</animation>
+			<!--overlay-->
+			<control type="image">
+				<posx>84</posx>
+				<posy>0</posy>
+				<width>573</width>
+				<height>835</height>
+				<texture>colors/black.png</texture>
+				<colordiffuse>ccffffff</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<posx>84</posx>
+				<posy>0</posy>
+				<width>573</width>
+				<height>198</height>
+				<texture>colors/selected.png</texture>
+				<colordiffuse>ffffffff</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<posx>84</posx>
+				<posy>1009</posy>
+				<width>573</width>
+				<height>3-row</height>
+				<texture>colors/black.png</texture>
+				<colordiffuse>ccffffff</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<!--content-->
+			<control type="group">
+				<posx>col-1-begin</posx>
+				<posy>row-2-begin</posy>
+				<control type="label">
+					<visible>!container.content(seasons)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>8-col-gutter</width>
+					<align>left</align>
+					<font>pageTitle</font>
+					<textcolor>black</textcolor>
+					<label>$INFO[ListItem.label]</label>
+					<scroll>true</scroll>
+					<shadowcolor>-</shadowcolor>
+				</control>
+				<control type="label">
+					<visible>container.content(seasons)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>8-col-gutter</width>
+					<align>left</align>
+					<font>pageTitle</font>
+					<textcolor>black</textcolor>
+					<label>$INFO[Container.SecondTitle]</label>
+					<scroll>true</scroll>
+					<shadowcolor>-</shadowcolor>
+				</control>
+				<control type="label">
+					<visible>!container.content(seasons)</visible>
+					<posx>0</posx>
+					<posy>42</posy>
+					<width>8-col-gutter</width>
+					<align>left</align>
+					<font>itemTitleSmall</font>
+					<textcolor>black</textcolor>
+					<label>$INFO[ListItem.duration,, $LOCALIZE[41015] ]</label>
+					<shadowcolor>-</shadowcolor>
+				</control>
+				<control type="label">
+					<visible>container.content(seasons)</visible>
+					<posx>0</posx>
+					<posy>42</posy>
+					<width>8-col-gutter</width>
+					<align>left</align>
+					<font>itemTitleSmall</font>
+					<textcolor>black</textcolor>
+					<label>$INFO[Skin.String(tvDuration),, $LOCALIZE[41015] ]</label>
+					<shadowcolor>-</shadowcolor>
+				</control>
+				<!-- watched? -->
+				<control type="label">
+					<posx>543</posx>
+					<posy>-95</posy>
+					<width>543</width>
+					<align>right</align>
+					<font>symbol</font>
+					<textcolor>black</textcolor>
+					<label>$VAR[vListItemOverlay]</label>
+					<shadowcolor>-</shadowcolor>
+				</control>
+				<!-- MPAA flag -->
+				<control type="image">
+					<visible>!container.content(seasons)</visible>
+					<posy>-80</posy>
+					<posx>0</posx>
+					<width>543</width>
+					<height>30</height>
+					<align>left</align>
+					<texture>$INFO[Listitem.Art(mediaTag::contentRating)]</texture>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<colordiffuse>black</colordiffuse>
+				</control>
+				<!-- MPAA flag -->
+				<control type="image">
+					<visible>container.content(seasons)</visible>
+					<posy>-80</posy>
+					<posx>0</posx>
+					<width>543</width>
+					<height>30</height>
+					<align>left</align>
+					<texture>$INFO[Skin.String(tvMPAA)]</texture>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<colordiffuse>black</colordiffuse>
+				</control>
+				<!--synopsis-->
+				<control type="textbox">
+					<visible>!container.content(seasons)</visible>
+					<posx>0</posx>
+					<posy>132</posy>
+					<font>textboxExtraLeading</font>
+					<width>8-col-gutter</width>
+					<align>left</align>
+					<textcolor>selected</textcolor>
+					<height>6-row-synopsis</height>
+					<label fallback="[B]There is no description available for this. You can add one for it in the Media Manager.[/B]">$INFO[ListItem.plot,[B],[/B]]</label>
+					<autoscroll delay="10000" time="1000" repeat="10000"/>
+					<shadowcolor>-</shadowcolor>
+				</control>
+				<!--synopsis tv-->
+				<control type="textbox">
+					<visible>container.content(seasons)</visible>
+					<posx>0</posx>
+					<posy>132</posy>
+					<font>textboxExtraLeading</font>
+					<width>8-col-gutter</width>
+					<align>left</align>
+					<textcolor>selected</textcolor>
+					<height>6-row-synopsis</height>
+					<label fallback="[B]There is no description available for this. You can add one for it in the Media Manager.[/B]">$INFO[Container.Property(summary),[B],[/B]]</label>
+					<autoscroll delay="10000" time="1000" repeat="10000"/>
+					<shadowcolor>-</shadowcolor>
+				</control>
+			</control>
+			<!--meta-->
+			<control type="panel">
+				<posx>col-1-begin</posx>
+				<posy>row-11-begin</posy>
+				<width>8-col</width>
+				<height>6-row</height>
+				<enable>false</enable>
+				<itemlayout width="4-col" height="76">
+					<control type="label">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>4-col-gutter</width>
+						<font>itemTitleSmall</font>
+						<textcolor>accented</textcolor>
+						<label>$INFO[ListItem.label]</label>
+						<shadowcolor>-</shadowcolor>
+					</control>
+					<control type="label">
+						<posx>0</posx>
+						<posy>32</posy>
+						<width>4-col-gutter</width>
+						<font>itemTitleSmall</font>
+						<textcolor>selected</textcolor>
+						<label fallback="31159">$INFO[ListItem.label2]</label>
+						<shadowcolor>-</shadowcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout width="4-col" height="114"/>
+				<content>
+					<item>
+						<label>$LOCALIZE[562]</label>
+						<visible>!isempty(ListItem.year)</visible>
+						<label2>$INFO[ListItem.year]</label2>
+						<thumb>-</thumb>
+						<onclick>noop</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[562]</label>
+						<visible>!isempty(Skin.String(tvYear))</visible>
+						<label2>$INFO[Skin.String(tvYear)]</label2>
+						<thumb>-</thumb>
+						<onclick>noop</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[31135]</label>
+						<visible>!isempty(ListItem.director)</visible>
+						<label2>$INFO[ListItem.director]</label2>
+						<thumb>-</thumb>
+						<onclick>noop</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[32113]</label>
+						<visible>!isempty(Skin.String(tvStudio))</visible>
+						<label2>$INFO[Skin.String(tvStudio)]</label2>
+						<thumb>-</thumb>
+						<onclick>noop</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[515]</label>
+						<visible>!isempty(ListItem.Genre)</visible>
+						<label2>$INFO[ListItem.Genre]</label2>
+						<thumb>-</thumb>
+						<onclick>noop</onclick>
+						<visible>!Container.Content(episode)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[515]</label>
+						<visible>!isempty(Skin.String(tvGenre))</visible>
+						<label2>$INFO[Skin.String(tvGenre)]</label2>
+						<thumb>-</thumb>
+						<onclick>noop</onclick>
+						<visible>!Container.Content(episode)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[31136]</label>
+						<visible>!isempty(ListItem.Writer)</visible>
+						<label2>$INFO[ListItem.Writer]</label2>
+						<thumb>-</thumb>
+						<onclick>noop</onclick>
+						<visible>Container.Content(episode)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[563]</label>
+						<visible>!isempty(ListItem.Rating)</visible>
+						<label2>$INFO[ListItem.Rating,,/10]</label2>
+						<thumb>-</thumb>
+						<onclick>noop</onclick>
+					</item>
+					<item>
+						<label>$LOCALIZE[563]</label>
+						<visible>!isempty(Skin.String(tvRating))</visible>
+						<label2>$INFO[Skin.String(tvRating)]</label2>
+						<thumb>-</thumb>
+						<onclick>noop</onclick>
+					</item>
+				</content>
+			</control>
+			<!--dialog controls-->
+			<control type="panel" id="8000">
+				<posx>84</posx>
+				<posy>row-15-begin</posy>
+				<width>8-col</width>
+				<height>6-row</height>
+				<itemgap>3</itemgap>
+				<onright condition="!Skin.String(showcast,true)">Skin.SetString(showcast,true)</onright>
+				<onright condition="!Skin.String(showcast,true)">Control.SetFocus(3)</onright>
+				<onright condition="Skin.String(showcast,true) + !IsEmpty(ListItem.Property(PlexExtras))">3</onright>
+				<onright condition="IsEmpty(ListItem.Property(PlexExtras))">Back</onright>
+				<!--<onright condition="!Skin.String(showcast,true)">Back</onright>-->
+				<!--<onright condition="Skin.String(showcast,true) + IsEmpty(ListItem.Property(PlexExtras))">Back</onright>-->
+				<onleft>Back</onleft>
+				<orientation>vertical</orientation>
+				<itemlayout width="4-col" height="1-row">
+					<control type="image">
+						<posx>0</posx>
+						<posy>2</posy>
+						<width>285</width>
+						<height>55</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>colors/black.png</texture>
+						<colordiffuse>cc000000</colordiffuse>
+					</control>
+					<control type="label">
+						<posx>24</posx>
+						<posy>0</posy>
+						<width>1-col</width>
+						<font>symbol</font>
+						<textcolor>selected</textcolor>
+						<label>$INFO[ListItem.label2]</label>
+						<shadowcolor>-</shadowcolor>
+					</control>
+					<control type="label">
+						<posx>64</posx>
+						<posy>2</posy>
+						<width>184</width>
+						<font>menuTitle</font>
+						<textcolor>selected</textcolor>
+						<label>$INFO[ListItem.label]</label>
+						<shadowcolor>-</shadowcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout width="4-col" height="1-row">
+					<control type="image">
+						<posx>0</posx>
+						<posy>2</posy>
+						<width>285</width>
+						<height>55</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>colors/selected.png</texture>
+					</control>
+					<control type="label">
+						<posx>24</posx>
+						<posy>0</posy>
+						<width>1-col</width>
+						<font>symbol</font>
+						<textcolor>black</textcolor>
+						<label>$INFO[ListItem.label2]</label>
+						<shadowcolor>-</shadowcolor>
+					</control>
+					<control type="label">
+						<posx>64</posx>
+						<posy>2</posy>
+						<width>184</width>
+						<font>menuTitle</font>
+						<textcolor>black</textcolor>
+						<label>$INFO[ListItem.label]</label>
+						<shadowcolor>-</shadowcolor>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>31075</label>
+						<label2> ></label2>
+					<thumb>-</thumb>
+					<onclick>Plex.PlayWith(VideoDefaultPlayer)</onclick>
+				</item>
+				<item>
+					<visible>!IsEmpty(ListItem.Property(PlexExtras)) + !container.content(seasons)</visible>
+					<label>41008</label>
+					<label2>P</label2>
+					<thumb>-</thumb>
+					<onclick condition="!Skin.String(showcast,true)">Skin.SetString(showcast,true)</onclick>
+					<onclick condition="Skin.String(showcast,true)">Skin.SetString(showcast,false)</onclick>
+					<onclick condition="!Skin.String(showcast,true)">Control.SetFocus(3)</onclick>
+					<onclick condition="Skin.String(showcast,true)">Control.SetFocus(8000)</onclick>
+				</item>
+				<item>
+					<visible>!IsEmpty(ListItem.Property(PlexExtras)) + container.content(seasons)</visible>
+					<label>31137</label>
+					<label2>P</label2>
+					<thumb>-</thumb>
+					<onclick condition="!Skin.String(showcast,true)">Skin.SetString(showcast,true)</onclick>
+					<onclick condition="Skin.String(showcast,true)">Skin.SetString(showcast,false)</onclick>
+					<onclick condition="!Skin.String(showcast,true)">Control.SetFocus(3)</onclick>
+					<onclick condition="Skin.String(showcast,true)">Control.SetFocus(8000)</onclick>
+				</item>
+				<item>
+					<label>41014</label>
+					<label2>Y</label2>
+					<thumb>-</thumb>
+					<onclick>ActivateWindow(10205)</onclick>
+				</item>
+				<item>
+					<label>31133</label>
+					<label2>b</label2>
+					<thumb>-</thumb>
+					<onclick>ActivateWindow(10204)</onclick>
+				</item>
+				<item>
+					<label>RATE</label>
+					<label2>l</label2>
+					<thumb>-</thumb>
+					<onclick>ActivateWindow(10200,$INFO[ListItem(0).Path])</onclick>
+				</item>
+				<item>
+					<label2>E</label2>
+					<onclick>markaswatched</onclick>
+					<label>MARK WATCHED</label>
+					<visible>[ListItem.Status(Unwatched) | ListItem.Status(InProgress)]</visible>
+				</item>
+				<item>
+					<label2>*</label2>
+					<onclick>markasunwatched</onclick>
+					<label>MARK UNWATCHED</label>
+					<visible>![ListItem.Status(Unwatched) | ListItem.Status(InProgress)]</visible>
+				</item>
+			</content>
+		</control>
+		<!--empty image if no extras-->
+		<control type="image">
+			<visible>IsEmpty(ListItem.Property(PlexExtras))</visible>
+			<posx>372</posx>
+			<posy>952</posy>
+			<width>285</width>
+			<height>55</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>colors/black.png</texture>
+			<colordiffuse>cc000000</colordiffuse>
+		</control>
+	</control>
+	<!--content is tvshow episode or content is from a plugin-->
+	<control type="group">
+		<visible>![Skin.Hassetting(disableClipPP) + Skin.String(SectionType,channels)] + [Container.PlexContent(Clip) | container.content(episode)]</visible>
+		<visible>![Skin.Hassetting(disableTVPP) + !Skin.String(preSkipEV,1) + Container.Content(episode) + [IsEmpty(ListItem.Plot) | ListItem.Status(InProgress) | ListItem.Status(UnWatched)]]</visible>
+		<!--animations-->
+		<include>modalDialogInOut</include>
+		<!--thumbnail if available-->
+		<control type="group">
+			<posx>col-7-begin</posx>
+			<posy>row-1-begin</posy>
+			<control type="image">
+				<posx>0</posx>
+				<posy>12</posy>
+				<width>12-col</width>
+				<height>486</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<texture background="true" fallback="colors/black.png" border="0">$VAR[listItemVideoPreview]</texture>
+				<bordertexture border="3" colordiffuse="33FFFFFF">colors/selected.png</bordertexture>
+				<bordersize>3</bordersize>
+			</control>
+			<!--overlay-->
+			<control type="image">
+				<posx>0</posx>
+				<posy>502</posy>
+				<width>12-col</width>
+				<height>436</height>
+				<texture>colors/black.png</texture>
+				<colordiffuse>ccffffff</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+			</control>
+		</control>
+		<!--content-->
+		<control type="group">
+			<posx>col-7-begin</posx>
+			<posy>row-10-begin</posy>
+			<!--titles-->
+			<control type="label">
+				<posx>12</posx>
+				<posy>0</posy>
+				<width>12-col-pad</width>
+				<align>left</align>
+				<font>itemTitleSmall</font>
+				<textcolor>selected</textcolor>
+				<shadowcolor>-</shadowcolor>
+				<scroll>true</scroll>
+				<label>$INFO[listitem.tvshowtitle,, ]$INFO[listitem.season,&#xB7; $LOCALIZE[31141] , &#xB7; ]$INFO[listitem.Episode, $LOCALIZE[31114] , &#xB7; ]$INFO[listitem.duration,, $LOCALIZE[41015]]</label>
+			</control>
+			<control type="label">
+				<description>Episode title</description>
+				<posx>12</posx>
+				<posy>1-row</posy>
+				<width>12-col-pad</width>
+				<align>left</align>
+				<font>mediumStrong</font>
+				<scroll>true</scroll>
+				<textcolor>selected</textcolor>
+				<shadowcolor>-</shadowcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+			<!--synopsis-->
+			<control type="textbox">
+				<posx>12</posx>
+				<posy>120</posy>
+				<font>textboxExtraLeading</font>
+				<width>12-col-pad</width>
+				<align>left</align>
+				<textcolor>selected</textcolor>
+				<shadowcolor>-</shadowcolor>
+				<height>228</height>
+				<label>[B]$VAR[listItemFullInfoPlot][/B]</label>
+				<autoscroll delay="10000" time="1000" repeat="10000"/>
+			</control>
+			<!--dialog controls-->
+			<control type="list" id="8000">
+				<posx>0</posx>
+				<posy>426</posy>
+				<width>12-col</width>
+				<height>1-row</height>
+				<itemgap>3</itemgap>
+				<onup>Skin.SetString(preSkipEV,1)</onup>
+				<ondown>Skin.SetString(preSkipEV,1)</ondown>
+				<onup>XBMC.NextItem</onup>
+				<ondown>XBMC.PrevItem</ondown>
+				<onleft>Back</onleft>
+				<onright>Back</onright>
+				<orientation>horizontal</orientation>
+				<itemlayout width="6-col" height="1-row">
+					<control type="image">
+						<posx>0</posx>
+						<posy>2</posy>
+						<width>6-col</width>
+						<height>53</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>colors/black.png</texture>
+					</control>
+					<control type="label">
+						<posx>24</posx>
+						<posy>0</posy>
+						<width>1-col</width>
+						<font>symbol</font>
+						<textcolor>selected</textcolor>
+						<label>$INFO[ListItem.label2]</label>
+						<shadowcolor>-</shadowcolor>
+					</control>
+					<control type="label">
+						<posx>1-col</posx>
+						<posy>2</posy>
+						<width>6-col</width>
+						<font>menuTitle</font>
+						<textcolor>selected</textcolor>
+						<label>$INFO[ListItem.label]</label>
+						<shadowcolor>-</shadowcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout width="6-col" height="1-row">
+					<control type="image">
+						<posx>0</posx>
+						<posy>2</posy>
+						<width>6-col</width>
+						<height>53</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>colors/selected.png</texture>
+					</control>
+					<control type="label">
+						<posx>24</posx>
+						<posy>0</posy>
+						<width>1-col</width>
+						<font>symbol</font>
+						<textcolor>black</textcolor>
+						<label>$INFO[ListItem.label2]</label>
+						<shadowcolor>-</shadowcolor>
+					</control>
+					<control type="label">
+						<posx>1-col</posx>
+						<posy>2</posy>
+						<width>6-col</width>
+						<font>menuTitle</font>
+						<textcolor>black</textcolor>
+						<label>$INFO[ListItem.label]</label>
+						<shadowcolor>-</shadowcolor>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>31075</label>
+						<label2>></label2>
+					<thumb>-</thumb>
+					<onclick>Skin.Reset(preSkipEV)</onclick>
+					<onclick>Plex.PlayWith(VideoDefaultPlayer)</onclick>
+				</item>
+				<item id="2">
+					<label2>E</label2>
+					<onclick>markaswatched</onclick>
+					<label>MARK WATCHED</label>
+					<visible>[ListItem.Status(Unwatched) | ListItem.Status(InProgress)]</visible>
+				</item>
+				<item id="3">
+					<label2>*</label2>
+					<onclick>markasunwatched</onclick>
+					<label>MARK UNWATCHED</label>
+					<visible>![ListItem.Status(Unwatched) | ListItem.Status(InProgress)]</visible>
+				</item>
+			</content>
+		</control>
+	</control>
+</control>
+<!--extras toggle-->
+<control type="group">
+	<visible>skin.string(showcast,true) + !Container.PlexContent(Clip) + !container.content(episode) + !IsEmpty(ListItem.Property(PlexExtras))</visible>
+	<animation effect="slide" start="800" end="0" tween="cubic" easing="out" time="400" delay="100">VisibleChange</animation>
+	<posx>1263</posx>
+	<posy>0</posy>
+	<animation type="Windowclose">
+		<effect type="slide" start="0" end="800" tween="cubic" easing="out" time="400" delay="300"/>
+	</animation>
+	<animation type="Windowopen">
+		<effect type="fade" start="0" end="100" time="300" delay="300"/>
+		<effect type="slide" start="800" end="0" tween="cubic" easing="out" time="400" delay="300"/>
+	</animation>
+	<!--overlay-->
+	<control type="image">
+		<posx>84</posx>
+		<posy>0</posy>
+		<width>573</width>
+		<height>198</height>
+		<texture>colors/selected.png</texture>
+		<colordiffuse>ffffffff</colordiffuse>
+		<aspectratio>stretch</aspectratio>
+	</control>
+	<control type="image">
+		<posx>84</posx>
+		<posy>198</posy>
+		<width>573</width>
+		<height>16-row</height>
+		<texture>colors/black.png</texture>
+		<colordiffuse>ccffffff</colordiffuse>
+		<aspectratio>stretch</aspectratio>
+	</control>
+	<control type="multiimage">
+		<visible>!IsEmpty(Skin.String(castFanartLocation)) + container.content(movie)</visible>
+		<posx>514</posx>
+		<posy>10</posy>
+		<width>133</width>
+		<height>178</height>
+		<imagepath>$INFO[Skin.String(castFanartLocation)]$INFO[ListItem.label] ($INFO[ListItem.year])\.actors</imagepath>
+		<timeperimage>2000</timeperimage>
+		<fadetime>100</fadetime>
+		<pauseatend>200</pauseatend>
+		<randomize>true</randomize>
+		<loop>yes</loop>
+		<aspectratio>stretch</aspectratio>
+	</control>
+	<!--content-->
+	<control type="group">
+		<posx>col-1-begin</posx>
+		<posy>row-2-begin</posy>
+		<control type="label">
+			<visible>!IsEmpty(ListItem.Property(PlexExtras)) + !container.content(seasons)</visible>
+			<posx>0</posx>
+			<posy>42</posy>
+			<width>8-col-gutter</width>
+			<align>left</align>
+			<font>itemTitleSmall</font>
+			<textcolor>black</textcolor>
+			<label>$LOCALIZE[41008]</label>
+			<shadowcolor>-</shadowcolor>
+		</control>
+		<control type="label">
+			<visible>!IsEmpty(ListItem.Property(PlexExtras)) + container.content(seasons)</visible>
+			<posx>0</posx>
+			<posy>42</posy>
+			<width>8-col-gutter</width>
+			<align>left</align>
+			<font>itemTitleSmall</font>
+			<textcolor>black</textcolor>
+			<label>$INFO[Skin.String(tvCount)] $LOCALIZE[31137]</label>
+			<shadowcolor>-</shadowcolor>
+		</control>
+	</control>
+	<control type="list" id="3">
+		<posx>84</posx>
+		<posy>202</posy>
+		<width>8-col</width>
+		<height>14-row</height>
+		<itemgap>3</itemgap>
+		<onup>3</onup>
+		<ondown>3</ondown>
+		<onleft>8000</onleft>
+		<onright>Skin.SetString(showcast,false)</onright>
+		<onright>Control.SetFocus(8000)</onright>
+		<itemlayout width="8-col" height="2-row">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>111</width>
+				<height>111</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<texture border="0" fallback="candy/default.png">$VAR[listItemVideoPreview]</texture>
+				<bordersize>0</bordersize>
+				<colordiffuse>ffFFFFFF</colordiffuse>
+			</control>
+			<control type="textbox">
+				<posx>134</posx>
+				<posy>18</posy>
+				<width>5-col-gutter</width>
+				<height>68</height>
+				<font>itemTitleSmall</font>
+				<textcolor>selected</textcolor>
+				<label>$INFO[ListItem.label]</label>
+				<shadowcolor>-</shadowcolor>
+			</control>
+		</itemlayout>
+		<focusedlayout width="8-col" height="2-row">
+			<control type="image">
+				<posx>114</posx>
+				<posy>0</posy>
+				<width>7-col</width>
+				<height>111</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>colors/selected.png</texture>
+				<colordiffuse>ffFFFFFF</colordiffuse>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>111</width>
+				<height>111</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<texture border="0" fallback="candy/default.png">$VAR[listItemVideoPreview]</texture>
+				<bordersize>0</bordersize>
+				<colordiffuse>ffFFFFFF</colordiffuse>
+			</control>
+			<control type="textbox">
+				<posx>134</posx>
+				<posy>18</posy>
+				<width>5-col-gutter</width>
+				<height>68</height>
+				<font>itemTitleSmall</font>
+				<textcolor>black</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<shadowcolor>-</shadowcolor>
+			</control>
+		</focusedlayout>
+	</control>
+</control>
+<control type="group">
+	<visible>![Skin.Hassetting(disableClipPP) + Skin.String(SectionType,channels)]</visible>
+	<visible>!Skin.String(preSkip,1)</visible>
+	<posx>col-4-begin</posx>
+	<posy>row-18-begin</posy>
+	<control type="group">
+		<posx>col-13-begin</posx>
+		<include>keysListFooter</include>
+	</control>
+</control>
+<include>musicOverlay</include>
+<!--debugging-->
+<include>DebugGrid</include>
+<control type="label">
+	<include>DialogID</include>
+	<label>PlexPrePlayVideo.xml ---> $INFO[Skin.String(SectionType)] ---> $VAR[ContainerContent]</label>
+</control>
+</controls>
+</window>

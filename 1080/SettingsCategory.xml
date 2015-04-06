@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="12">
+	<defaultcontrol>997</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<onload>Skin.SetString(SettingsCategory,appearance)</onload>
+	<onunload>Skin.Reset(SettingsCategory)</onunload>
+	<onunload condition="Window.Next(0)">Dialog.Close(all,true)</onunload>
+	<controls>
+        <include>globalBackground</include>
+		<control type="group">
+			<!-- settings menu (left) -->
+			<include>SettingsMenu</include>		
+			<!-- setting options (right) -->
+			<include>SettingOptions</include>
+		</control>
+		<include>LeftSideMenuSettings</include>
+	</controls>
+</window>

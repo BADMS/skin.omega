@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="skin.omega" version="1.0" name="omega" provider-name="BADAAS">
+	<requires>
+		<import addon="xbmc.gui" version="4.0.0"/>
+	</requires>
+	<extension point="xbmc.gui.skin" defaultthemename="textures.xbt" debugging="false">
+	    <res width="1920" height="1080" aspect="16:9" default="true" folder="1080" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">omega by BADAAS</summary>
+		<description lang="en">"omega" is the default skin for leather clad nymphettes. AKA Maximinimalism, end of.</description>
+		<disclaimer lang="en">"omega" is the default skin, removing it may cause a rash.</disclaimer>
+		<platform>all</platform>
+		<website>www.omega.com</website>
+		<forum>forums.omega.com</forum>
+		<email>contact@omega.com</email>
+	</extension>
+</addon>

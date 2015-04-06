@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="0">
+	<defaultcontrol always="true">301</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<!-- <onload>Skin.SetString(SectionType,home)</onload> -->
+	<onload condition="!isEmpty(Skin.String(Section1_Name))">XBMC.ActivateWindow(MyVideoFiles,$INFO[Skin.String(Section1_Name)],return)</onload>
+	<onload>AlarmClock(controlType,Skin.Reset(SectionType),00:01,silent)</onload>
+	<onload>Skin.SetString(AspectRatio,$INFO[Skin.AspectRatio])</onload>
+	<onload>Skin.Reset(dsp_helper)</onload>
+	<!-- <onload>XBMC.ActivateWindow(MyVideoFiles,$INFO[Skin.String(Channel1_Name)],return)</onload> -->
+	<onunload>Skin.Reset(SectionType)</onunload>
+	<onunload>CancelAlarm(controlType,true)</onunload>
+	<controls>
+		<!-- PHT NoFocus Bug Workaround -->
+		<control type="button" id="301">
+			<posx>-20</posx>
+			<posy>-20</posy>
+			<width>0</width>
+			<height>0</height>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+			<onfocus>SetFocus(300)</onfocus>
+		</control>
+		<!--default background-->
+		<include>globalBackground</include>
+		<include>HomeMenuDefault</include>
+		<include>HomeTitles</include>
+		<include>HomeLists</include>
+		<include>CurrentUserAvatar</include>
+		<include>musicOverlay</include>
+		<control type="label">
+			<include>WindowID</include>
+			<label>Home.xml ---> $INFO[Skin.String(SectionType)] - $INFO[Container(300).ListItem(0).Label] url. $INFO[Container(300).ListItem(0).FileNameAndPath]</label>
+		</control>
+	</controls>
+</window>

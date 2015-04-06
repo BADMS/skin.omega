@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="MenuItemNFTextureNF">
+		<texturenofocus aspectratio="stretch">MenuItemNF.png</texturenofocus>
+	</include>
+	<!-- settings menu (left) -->
+	<include name="SettingsMenu">
+        <!--background-->
+        <control type="image">
+            <include>dimensionsFullscreen</include>
+            <texture>colors/black.png</texture>
+            <aspectratio>stretch</aspectratio>
+            <colordiffuse>99ffffff</colordiffuse>
+        </control>
+        <control type="group">
+            <posx>col-3-begin</posx>
+            <posy>row-2-begin</posy>
+            <!--animations-->
+            <control type="image">
+                <posx>-240</posx>
+                <posy>44</posy>
+                <width>fullscreenWidth</width>
+                <height>1-row</height>
+                <texture>colors/selected.png</texture>
+                <colordiffuse>ffffffff</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <posx>-3</posx>
+                <posy>44</posy>
+                <width>3</width>
+                <height>1-row</height>
+                <texture>colors/black.png</texture>
+                <colordiffuse>ffffffff</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="label">
+                <posx>12</posx>
+                <posy>44</posy>
+                <width>8-col</width>
+                <font>dialogTitle</font>
+                <label>$LOCALIZE[20077]</label>
+                <textcolor>black</textcolor>
+            </control>
+			<control type="group" id="302">
+				<control type="grouplist" id="3">
+					<posx>0</posx>
+					<posy>118</posy>
+					<width>350</width>
+					<onleft>Plex.ActivateWindow(4997)</onleft>
+					<onright>301</onright>
+					<onup>3</onup>
+					<ondown>3</ondown>
+					<itemgap>3</itemgap>
+					<orientation>vertical</orientation>
+				</control>
+				<control type="button" id="10">
+					<width>276</width>
+					<font>itemTitle</font>
+					<texturefocus>colors/selected.png</texturefocus>
+					<textcolor>selected</textcolor>
+					<textoffsetx>20</textoffsetx>
+					<height>1-row</height>
+				</control>
+			</control>
+		</control>
+	</include>
+	<!-- setting options (right) -->
+	<include name="SettingOptions">
+		<control type="group" id="301">
+            <posx>col-3-begin</posx>
+            <posy>row-2-begin</posy>
+			<width>1120</width>
+			<control type="grouplist" id="5">
+                <posx>4-col</posx>
+                <posy>118</posy>
+                <width>16-col</width>
+                <itemgap>3</itemgap>
+                <height>14-row</height>
+				<onup>5</onup>
+				<ondown>5</ondown>
+				<onleft>302</onleft>
+				<onright>-</onright>
+				<pagecontrol>61</pagecontrol>
+			</control>
+			<control type="button" id="7">
+				<texturefocus>colors/selected.png</texturefocus>
+                <height>1-row</height>
+				<textcolor>selected</textcolor>
+				<textoffsetx>20</textoffsetx>
+			</control>
+			<control type="radiobutton" id="8">
+                <height>1-row</height>
+				<textoffsetx>20</textoffsetx>
+			</control>
+			<control type="spincontrolex" id="9">
+                <height>1-row</height>
+				<textoffsetx>20</textoffsetx>
+			</control>
+			<control type="scrollbar" id="61">
+				<animation effect="fade" start="100" end="0" time="100" condition="!controlgroup(301).hasfocus">conditional</animation>
+				<posy>118</posy>
+				<posx>1460</posx>
+				<height>14-row</height>
+				<onup>61</onup>
+				<ondown>61</ondown>
+			</control>
+		</control>
+	</include>
+</includes>

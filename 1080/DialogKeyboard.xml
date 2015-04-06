@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<window id="103">
+	<defaultcontrol always="true">300</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<zorder>1</zorder>
+    <coordinates>
+        <system>1</system>
+        <origin x="0" y="0"/>
+    </coordinates>
+	<controls>
+		<include>KeyboardFull</include>		
+	</controls>
+</window>

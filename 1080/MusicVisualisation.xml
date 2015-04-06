@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<window id="2006">
+    <onload>AlarmClock(controlOSD,ActivateWindow(120),00:01,silent)</onload>
+    <onload>AlarmClock(controlOSDtoo,action(Back),00:02,silent)</onload>
+	<defaultcontrol always="true">711</defaultcontrol>
+	<onunload>CancelAlarm(controlOSD,true)</onunload>
+	<onunload>CancelAlarm(controlOSDtoo,true)</onunload>
+	<controls>
+		<control type="image">
+			<include>FullScreenScaled</include>
+			<texture>colors/black.png</texture>
+			<colordiffuse>ffFFFFFF</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+		</control>
+		<control type="group">
+			<include>fadeInOut</include>
+			<!--fanart-->
+			<control type="image">
+				<visible>isempty(Window(Visualisation).Property(ArtistSlideshow))</visible>
+				<posx>0</posx>
+				<posy>0</posy>
+				<include>FullScreenScaled</include>
+				<fadetime>200</fadetime>
+				<texture background="true">$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+				<aspectratio align="left" aligny="top">stretch</aspectratio>
+				<include condition="!Skin.HasSetting(disableAnimateFanart)">kenBurnsey</include>
+			</control>
+			<control type="multiimage">
+				<visible>!isempty(Window(Visualisation).Property(ArtistSlideshow))</visible>
+				<posx>0</posx>
+				<posy>0</posy>
+				<include>FullScreenScaled</include>
+				<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+				<aspectratio>keep</aspectratio>
+				<timeperimage>10000</timeperimage>
+				<fadetime>1000</fadetime>
+				<randomize>true</randomize>
+				<include condition="!Skin.HasSetting(disableAnimateFanart)">kenBurnsey</include>
+			</control>
+			<!--visualisation-->
+			<control type="visualisation" id="2">
+				<description>visualisation</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<include>FullScreenScaled</include>
+			</control>
+			<!--vignettes-->
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<include>FullScreenScaled</include>
+				<texture>backgrounds/vignette.png</texture>
+				<colordiffuse>ffffffff</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<!--info-->
+			<control type="group">
+				<!--track info-->
+				<control type="group">
+					<animation type="windowOpen">
+						<effect type="fade" start="0" end="100" time="500" delay="1000"/>
+					</animation>
+					<animation type="windowClose">
+						<effect type="fade" start="100" end="0" time="300"/>
+					</animation>
+					<!--Screen burn protection-->
+					<animation type="conditional" condition="true" pulse="true">
+						<effect type="fade" start="100" end="0" time="2500" delay="20000"/>
+					</animation>
+					<posx>0</posx>
+					<posy>row-14-begin</posy>
+					<control type="image">
+						<posx>72</posx>
+						<posy>0</posy>
+						<width>3-col</width>
+						<height>3-col</height>
+						<aspectratio>scale</aspectratio>
+						<texture fallback="colors/black.png" border="0">$INFO[MusicPlayer.Cover]</texture>
+						<bordertexture border="3" colordiffuse="33FFFFFF">colors/selected.png</bordertexture>
+						<bordersize>3</bordersize>
+						<colordiffuse>ffFFFFFF</colordiffuse>
+					</control>
+					<control type="label">
+						<posx>col-4-begin</posx>
+						<posy>-4</posy>
+						<width>20-col</width>
+						<font>largeBlack</font>
+						<textcolor>selected</textcolor>
+						<scroll>false</scroll>
+						<label fallback="31158">$INFO[MusicPlayer.Title]</label>
+					</control>
+					<control type="label">
+						<posx>col-4-begin</posx>
+						<posy>1-row</posy>
+						<width>20-col</width>
+						<font>medium</font>
+						<textcolor>selected</textcolor>
+						<scroll>false</scroll>
+						<label>$INFO[MusicPlayer.artist]</label>
+					</control>
+					<control type="label">
+						<visible>!player.hasmedia</visible>
+						<posx>col-4-begin</posx>
+						<posy>1-row</posy>
+						<width>20-col</width>
+						<font>medium</font>
+						<textcolor>selected</textcolor>
+						<scroll>false</scroll>
+						<label>$LOCALIZE[31167]</label>
+					</control>
+					<control type="label">
+						<posx>col-4-begin</posx>
+						<posy>118</posy>
+						<width>20-col</width>
+						<font>regularStrong</font>
+						<textcolor>selected</textcolor>
+						<scroll>false</scroll>
+						<label>$INFO[MusicPlayer.Album,, ]$INFO[MusicPlayer.year,(,)]</label>
+					</control>
+					<control type="label">
+						<posx>col-4-begin</posx>
+						<posy>164</posy>
+						<width>12-col</width>
+						<font>itemTitleSmall</font>
+						<align>left</align>
+						<textcolor>selected</textcolor>
+						<scroll>false</scroll>
+						<label>[B]$INFO[MusicPlayer.time,, / ]$INFO[MusicPlayer.duration][/B]     $INFO[MusicPlayer.offset(1).Artist,[B]$LOCALIZE[19031][/B]: , - ]$INFO[MusicPlayer.offset(1).Title]</label>
+					</control>
+					<control type="progress">
+						<description>Progressbar</description>
+						<posx>72</posx>
+						<posy>216</posy>
+						<width>1776</width>
+						<info>Player.Progress</info>
+					</control>
+				</control>
+			</control>
+		</control>
+		<!--dialog controls-->
+	</controls>
+</window>
