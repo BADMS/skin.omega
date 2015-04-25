@@ -4,7 +4,7 @@
 		<width>570</width>
 		<height>12</height>
 		<font>Regular-12</font>
-		<textcolor>white</textcolor>
+		<textcolor>yellow</textcolor>
 		<align>left</align>
 		<scroll>false</scroll>
 		<wrapmultiline>false</wrapmultiline>
@@ -147,26 +147,22 @@
 </variable>
 <include name="debugInfos">
 	<control type="group" id="1">
-		<visible>Skin.HasSetting(showdebug)</visible>
+		<visible>Skin.HasSetting(DebugInfo)</visible>
 		<control type="group">
 			<animation effect="fade" start="0" end="85" condition="true">Conditional</animation>
 			<control type="image">
 				<include>FullScreenScaled</include>
-				<texture>black.png</texture>
-			</control>
-			<control type="image">
-				<include>FullScreenScaled</include>
-				<texture>bg-overlay-grainy.png</texture>
+				<texture>colors/black.png</texture>
 			</control>
 		</control>
 		<!-- left list -->
 		<control type="grouplist">
 			<posx>40</posx>
-			<posy>40</posy>
-			<width>350</width>
+			<posy>440</posy>
+			<width>600</width>
 			<height>680</height>
 			<orientation>vertical</orientation>
-			<itemgap>5</itemgap>
+			<itemgap>12</itemgap>
 			<control type="label">
 				<include>debugFont</include>
 				<label>System.CurrentWindow : [COLOR=orangeLight]$INFO[System.CurrentWindow][/COLOR]</label>
@@ -360,9 +356,9 @@
 </control>
 <!-- middle list -->
 <control type="grouplist">
-	<posx>400</posx>
-	<posy>40</posy>
-	<width>390</width>
+	<posx>610</posx>
+	<posy>440</posy>
+			<width>600</width>
 	<height>680</height>
 	<orientation>vertical</orientation>
 	<itemgap>5</itemgap>
@@ -526,9 +522,9 @@
 <!-- right list -->
 <!-- PHOTOS -->
 <control type="grouplist">
-	<posx>820</posx>
-	<posy>40</posy>
-	<width>390</width>
+	<posx>1220</posx>
+	<posy>440</posy>
+			<width>600</width>
 	<height>680</height>
 	<orientation>vertical</orientation>
 	<itemgap>5</itemgap>
@@ -600,9 +596,9 @@
 </control>
 <!-- VIDEO -->
 <control type="grouplist">
-	<posx>820</posx>
-	<posy>40</posy>
-	<width>390</width>
+	<posx>1400</posx>
+	<posy>440</posy>
+			<width>600</width>
 	<height>680</height>
 	<orientation>vertical</orientation>
 	<itemgap>5</itemgap>
@@ -693,7 +689,7 @@
 <!-- VIDEO PLAYER SPECIFIC -->
 <control type="grouplist">
 	<posx>820</posx>
-	<posy>40</posy>
+	<posy>440</posy>
 	<width>390</width>
 	<height>680</height>
 	<orientation>vertical</orientation>
@@ -817,7 +813,7 @@
 <!-- MUSIC -->
 <control type="grouplist">
 	<posx>820</posx>
-	<posy>40</posy>
+	<posy>440</posy>
 	<width>390</width>
 	<height>680</height>
 	<orientation>vertical</orientation>
@@ -891,7 +887,7 @@
 <!-- HOME LISTS DEBUG -->
 <control type="grouplist">
 	<posx>820</posx>
-	<posy>40</posy>
+	<posy>440</posy>
 	<width>390</width>
 	<height>680</height>
 	<orientation>vertical</orientation>

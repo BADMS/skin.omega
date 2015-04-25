@@ -192,7 +192,7 @@
 		<!--loading indicator-->
 		<include>musicOverlay</include>
 		<include>loadingIndicator</include>
-		<include>DebugGrid</include>
+		<include>debugInfos</include>
 		<control type="label">
 			<include>WindowID</include>
 			<label>MyVideoNav.xml ---> $INFO[Skin.String(SectionType)] - $INFO[Container(300).ListItem(0).Label] - $INFO[Container.PlexContent] ---> $VAR[ListItemType] CC=$VAR[ContainerContent]</label>

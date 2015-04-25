@@ -83,19 +83,21 @@
 		<texturefocus>colors/black.png</texturefocus>
 		<textoffsetx>5</textoffsetx>
 		<alttexturefocus>colors/selected.png</alttexturefocus>
-		<radiowidth>16</radiowidth>
+		<radiowidth>32</radiowidth>
 		<radioposx>236</radioposx>
 		<radioposy>1</radioposy>
-		<radioheight>16</radioheight>
-		<textureradiofocus>OverlayWatchedold.png</textureradiofocus>
+		<radioheight>32</radioheight>
+        <textureradiofocus>UIControls/radio-button-fo.png</textureradiofocus>
+        <textureradionofocus>UIControls/radio-button-nf.png</textureradionofocus>
 		<align>left</align>
 		<aligny>center</aligny>
+		<scroll>true</scroll>
 	</include>
 	<include name="leftSubMenuClearFilters">
 		<height>36</height>
 		<width>270</width>
 		<font>filterTitle</font>
-		<textcolor>black</textcolor>
+		<textcolor>red</textcolor>
 		<focusedcolor>selected</focusedcolor>
 		<texturefocus>colors/black.png</texturefocus>
 		<textoffsetx>5</textoffsetx>
@@ -111,7 +113,7 @@
 		<height>36</height>
 		<width>270</width>
 		<font>filterTitle</font>
-		<textcolor>black</textcolor>
+		<textcolor>red</textcolor>
 		<focusedcolor>selected</focusedcolor>
 		<texturefocus>colors/black.png</texturefocus>
 		<textoffsetx>5</textoffsetx>
@@ -325,51 +327,6 @@
 			<!-- global search-->
 			<!-- sidebar global -->
 			<!--titles-->
-			<!--<control type="label">
-				<description>video</description>
-				<visible>[Window.isactive(videolibrary) | window.isactive(videoplaylist) | window.isactive(tvchannels) | window.isactive(tvguide) | window.isactive(TVRecordings) | window.isactive(tvtimers)] + !Skin.String(keepMusicMenuActive)</visible>
-				<posx>-303</posx>
-				<posy>116</posy>
-				<width>14-col</width>
-				<font>pageTitle</font>
-				<label>Video</label>
-				<textcolor>black</textcolor>
-				<shadowcolor>-</shadowcolor>
-				<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(seasons) | Container.Content(songs) | Container.Content(albums) | Container.Content(channel)]</visible>
-			</control>
-			<control type="label">
-				<description>music</description>
-				<visible>[window.isactive(musiclibrary) | window.isactive(musicfiles) | window.isactive(musicplaylist) | Skin.String(SectionType,music)]</visible>
-				<posx>-303</posx>
-				<posy>116</posy>
-				<width>14-col</width>
-				<font>pageTitle</font>
-				<label>Music</label>
-				<textcolor>black</textcolor>
-				<shadowcolor>-</shadowcolor>
-				<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(seasons) | Container.Content(songs) | Container.Content(albums) | Container.Content(channel)]</visible>
-			</control>
-			<control type="label">
-				<description>pictures</description>
-				<visible>window.isactive(pictures)</visible>
-				<posx>-303</posx>
-				<posy>116</posy>
-				<width>14-col</width>
-				<font>pageTitle</font>
-				<label>Pictures</label>
-				<textcolor>black</textcolor>
-				<shadowcolor>-</shadowcolor>
-				<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(seasons) | Container.Content(songs) | Container.Content(albums) | Container.Content(channel)]</visible>
-			</control>-->
-			<control type="label">
-				<posx>-303</posx>
-				<posy>156</posy>
-				<width>24-col</width>
-				<font>regular</font>
-				<label>Options</label>
-				<textcolor>black</textcolor>
-				<shadowcolor>-</shadowcolor>
-			</control>
 			<control type="grouplist" id="998">
 				<visible>!Container.PlexContent(Movie) + !Container.PlexContent(Episode) + !Container.PlexContent(Clip) + Control.IsVisible(995)</visible>
 				<posy>5-row</posy>
@@ -431,15 +388,15 @@
 			<!-- filters & sorting menu -->
 			<control type="group" id="1300">
 				<animation type="Conditional" condition="!Window.IsActive(10202)" reversible="false">
-					<effect type="rotatey" center="-120" start="80" end="0" time="300"/>
+					<effect type="slide" tween="circle" easing="out" start="0,-274" end="0,0" time="350" />
 					<effect type="fade" start="0" end="100" time="0" delay="0"/>
 				</animation>
 				<animation type="Conditional" condition="Window.IsActive(10202)" reversible="false">
-					<effect type="rotatey" center="-120" start="0" end="80" time="300"/>
+					<effect type="slide" tween="circle" easing="out" start="0,274" end="0,0" time="350" />
 					<effect type="fade" start="100" end="0" time="250"/>
 				</animation>
 				<posx>-327</posx>
-				<posy>0</posy>
+				<posy>-112</posy>
 				<width>327</width>
 				<height>2000</height>
 				<ondown>1300</ondown>
@@ -447,11 +404,12 @@
 				<scrolltime>150</scrolltime>
 				<!-- FILTERS -->
 				<!-- primary filter list title -->
-				<control type="label" id="19008">
+				<control type="label">
 					<description>Title</description>
 					<posx>19</posx>
-					<posy>117</posy>
+					<posy>227</posy>
 					<include>topleftMenuTitle</include>
+					<label>Filter(s)</label>
 				</control>
 				<!-- primary filters list -->
 				<control type="grouplist" id="19000">
@@ -462,9 +420,6 @@
 					<onright>777</onright>
 					<itemgap>0</itemgap>
 					<animation effect="slide" end="0,0" time="0" condition="Container.Content(movies)">Conditional</animation>
-				</control>
-				<!-- secondary filters list title -->
-				<control type="label" id="19009">
 				</control>
 				<!-- secondary filters list -->
 				<control type="grouplist" id="19001">
@@ -499,9 +454,6 @@
 					<textcolor>black</textcolor>
 				</control>
 				<!-- SORTING -->
-				<!-- sorting list title -->
-				<control type="label" id="19019">
-				</control>
 				<!-- sorting list -->
 				<control type="grouplist" id="19010">
 					<posy>810</posy>

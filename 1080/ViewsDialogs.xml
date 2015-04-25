@@ -439,14 +439,14 @@
 <!-- DialogFilters.xml -->
 <include name="DialogFilters">
 	<control type="group">
-		<posx>0</posx>
+		<posx>19</posx>
 		<posy>0</posy>
 		<animation type="WindowOpen" condition="true" reversible="false">
-			<effect type="rotatey" center="120" start="-90,360" end="0,360" time="300"/>
+		    <effect type="slide" tween="circle" easing="out" start="0,-74" end="0,0" time="350" />
 			<effect type="fade" start="0" end="100" time="0" delay="0"/>
 		</animation>
 		<animation type="WindowClose" condition="true" reversible="false">
-			<effect type="rotatey" center="120" start="0,360" end="-90,360" time="300"/>
+		   <effect type="slide" start="0,0" end="0,-74" time="250" />
 			<effect type="fade" start="100" end="0" time="230"/>
 		</animation>
 		<!-- sub-list backgrounds -->
@@ -476,11 +476,10 @@
 				<posx>6</posx>
 				<onup>19020</onup>
 				<ondown>19020</ondown>
-				<onleft>1777</onleft>
-				<onright>61</onright>
+				<onleft>Dialog.Close(10202)</onleft>
+				<onright>Dialog.Close(10202)</onright>
 				<font>menuTitle</font>
 				<itemgap>5</itemgap>
-				<pagecontrol>61</pagecontrol>
 				<scrolltime>200</scrolltime>
 			</control>
 			<!-- sub-list buttons -->
@@ -490,15 +489,6 @@
 			<!-- Used for Clear Filters -->
 			<control type="button" id="19022">
 				<include>leftSubMenuClearFilters</include>
-			</control>
-			<control type="scrollbar" id="61">
-				<description>Scroll Bar</description>
-				<posx>245</posx>
-				<posy>38</posy>
-				<height>620</height>
-				<onleft>19020</onleft>
-				<onright>Dialog.Close(10202)</onright>
-				<showonepage>true</showonepage>
 			</control>
 		</control>
 	</control>
