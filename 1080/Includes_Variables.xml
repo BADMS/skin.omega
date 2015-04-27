@@ -119,11 +119,11 @@
 		<value condition="Container.PlexContent(Movies) + StringCompare(Container.Property(PlexFilter),all)">[UPPERCASE]$INFO[Container.FolderName][/UPPERCASE] [COLOR accented]ALL[/COLOR]</value>
 		<value condition="Container.PlexContent(Movies) + StringCompare(Container.Property(PlexFilter),recentlyViewed)">[UPPERCASE]$INFO[Container.FolderName][/UPPERCASE] [COLOR accented]RECENTLY VIEWED[/COLOR]</value>
 		<value condition="Container.PlexContent(Movies) + StringCompare(Container.Property(PlexFilter),onDeck)">[UPPERCASE]$INFO[Container.FolderName][/UPPERCASE] [COLOR accented]ON DECK[/COLOR]</value>
-		<value condition="Container.PlexContent(Albums) + StringCompare(Container.Property(PlexFilter),recentlyAdded)">[UPPERCASE]$INFO[Container.FolderName] / $LOCALIZE[132][/UPPERCASE] [COLOR accented]RECENTLY ADDED[/COLOR]</value>
-		<value condition="Container.PlexContent(Albums) + StringCompare(Container.Property(PlexFilter),albums)">[UPPERCASE]$INFO[Container.FolderName] / $LOCALIZE[132][/UPPERCASE] [COLOR accented]ALL[/COLOR]</value>
-		<value condition="Container.PlexContent(Albums) + !StringCompare(Container.Property(PlexFilter),albums)">[UPPERCASE]$INFO[Container.FolderName] / $INFO[Container.secondtitle] / $LOCALIZE[132][/UPPERCASE]</value>
+		<value condition="Container.PlexContent(Albums) + StringCompare(Container.Property(PlexFilter),recentlyAdded)">[UPPERCASE]$INFO[Container.FolderName] $LOCALIZE[132][/UPPERCASE] [COLOR accented]RECENTLY ADDED[/COLOR]</value>
+		<value condition="Container.PlexContent(Albums) + StringCompare(Container.Property(PlexFilter),albums)">[UPPERCASE]$INFO[Container.FolderName] $LOCALIZE[132][/UPPERCASE] [COLOR accented]ALL[/COLOR]</value>
+		<value condition="Container.PlexContent(Albums) + !StringCompare(Container.Property(PlexFilter),albums)">[UPPERCASE]$INFO[Container.FolderName] [COLOR accented]$INFO[Container.secondtitle] $LOCALIZE[132][/UPPERCASE][/COLOR]</value>
 		<value condition="Container.PlexContent(Artists) + StringCompare(Container.Property(PlexFilter),all)">[UPPERCASE]$INFO[Container.FolderName][/UPPERCASE] [COLOR accented]ALL[/COLOR]</value>
-		<value condition="Container.PlexContent(Songs)">[UPPERCASE]$INFO[Container.FirstTitle] / $INFO[Container.SecondTitle] / $LOCALIZE[134][/UPPERCASE]</value>
+		<value condition="Container.PlexContent(Songs)">[UPPERCASE]$INFO[Container.FirstTitle] [COLOR accented]$INFO[Container.SecondTitle][/UPPERCASE][/COLOR]</value>
 		<value condition="Container.Content(genres)">[UPPERCASE]$LOCALIZE[31131][/UPPERCASE]</value>
 		<value condition="Container.PlexContent(Photos)">[UPPERCASE]$INFO[Container.FolderName][/UPPERCASE]</value>
 		<value condition="ListItem.Type(clip)">[UPPERCASE]$INFO[Container.FolderName][/UPPERCASE]</value>
