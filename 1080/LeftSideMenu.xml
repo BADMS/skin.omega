@@ -432,6 +432,7 @@
 					<animation effect="slide" end="0,-106" time="0" condition="Skin.String(SectionType,movies) | Container.Content(movies)">Conditional</animation>
 					<animation effect="slide" end="0,-100" time="0" condition="Skin.String(SectionType,photos) | Window.IsActive(2)">Conditional</animation>
 					<animation effect="slide" end="0,-107" time="0" condition="Skin.String(SectionType,music) | Window.IsActive(501)">Conditional</animation>
+					<visible>IsEmpty(Container.Property(primaryFilterActivated))</visible>
 				</control>
 				<!-- filters buttons -->
 				<control type="button" id="19005">
