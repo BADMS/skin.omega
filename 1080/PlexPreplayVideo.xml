@@ -334,8 +334,8 @@
 				<height>6-row</height>
 				<itemgap>3</itemgap>
 				<onright condition="!Skin.String(showcast,true)">Skin.SetString(showcast,true)</onright>
-				<onright condition="!Skin.String(showcast,true)">Control.SetFocus(3)</onright>
-				<onright condition="Skin.String(showcast,true) + !IsEmpty(ListItem.Property(PlexExtras))">3</onright>
+				<onright condition="!Skin.String(showcast,true)">Control.SetFocus(30)</onright>
+				<onright condition="Skin.String(showcast,true) + !IsEmpty(ListItem.Property(PlexExtras))">30</onright>
 				<onright condition="IsEmpty(ListItem.Property(PlexExtras))">Back</onright>
 				<!--<onright condition="!Skin.String(showcast,true)">Back</onright>-->
 				<!--<onright condition="Skin.String(showcast,true) + IsEmpty(ListItem.Property(PlexExtras))">Back</onright>-->
@@ -412,7 +412,7 @@
 					<thumb>-</thumb>
 					<onclick condition="!Skin.String(showcast,true)">Skin.SetString(showcast,true)</onclick>
 					<onclick condition="Skin.String(showcast,true)">Skin.SetString(showcast,false)</onclick>
-					<onclick condition="!Skin.String(showcast,true)">Control.SetFocus(3)</onclick>
+					<onclick condition="!Skin.String(showcast,true)">Control.SetFocus(30)</onclick>
 					<onclick condition="Skin.String(showcast,true)">Control.SetFocus(8000)</onclick>
 				</item>
 				<item>
@@ -422,7 +422,7 @@
 					<thumb>-</thumb>
 					<onclick condition="!Skin.String(showcast,true)">Skin.SetString(showcast,true)</onclick>
 					<onclick condition="Skin.String(showcast,true)">Skin.SetString(showcast,false)</onclick>
-					<onclick condition="!Skin.String(showcast,true)">Control.SetFocus(3)</onclick>
+					<onclick condition="!Skin.String(showcast,true)">Control.SetFocus(30)</onclick>
 					<onclick condition="Skin.String(showcast,true)">Control.SetFocus(8000)</onclick>
 				</item>
 				<item>
@@ -708,14 +708,14 @@
 			<shadowcolor>-</shadowcolor>
 		</control>
 	</control>
-	<control type="list" id="3">
+	<control type="list" id="30">
 		<posx>84</posx>
 		<posy>202</posy>
 		<width>8-col</width>
 		<height>14-row</height>
 		<itemgap>3</itemgap>
-		<onup>3</onup>
-		<ondown>3</ondown>
+		<onup>30</onup>
+		<ondown>30</ondown>
 		<onleft>8000</onleft>
 		<onright>Skin.SetString(showcast,false)</onright>
 		<onright>Control.SetFocus(8000)</onright>
